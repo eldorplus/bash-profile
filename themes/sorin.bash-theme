@@ -1,0 +1,42 @@
+# sorin.bash-theme
+# screenshot: http://i.imgur.com/aipDQ.png
+
+if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
+  MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
+  local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
+
+  PROMPT='%{$fg[cyan]%}%c$(git_prompt_info) %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
+
+  BASH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}git%{$reset_color%}:%{$fg[red]%}"
+  BASH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+  BASH_THEME_GIT_PROMPT_DIRTY=""
+  BASH_THEME_GIT_PROMPT_CLEAN=""
+
+  RPROMPT='${return_status}$(git_prompt_status)%{$reset_color%}'
+
+  BASH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
+  BASH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
+  BASH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
+  BASH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
+  BASH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
+  BASH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
+else
+  MODE_INDICATOR="❮❮❮"
+  local return_status="%(?::⏎)"
+
+  PROMPT='%c$(git_prompt_info) %(!.#.❯) '
+
+  BASH_THEME_GIT_PROMPT_PREFIX=" git:"
+  BASH_THEME_GIT_PROMPT_SUFFIX=""
+  BASH_THEME_GIT_PROMPT_DIRTY=""
+  BASH_THEME_GIT_PROMPT_CLEAN=""
+
+  RPROMPT='${return_status}$(git_prompt_status)'
+
+  BASH_THEME_GIT_PROMPT_ADDED=" ✚"
+  BASH_THEME_GIT_PROMPT_MODIFIED=" ✹"
+  BASH_THEME_GIT_PROMPT_DELETED=" ✖"
+  BASH_THEME_GIT_PROMPT_RENAMED=" ➜"
+  BASH_THEME_GIT_PROMPT_UNMERGED=" ═"
+  BASH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
+fi

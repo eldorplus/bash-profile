@@ -1,0 +1,26 @@
+# Git-centric variation of the "fishy" theme.
+# See screenshot at http://ompldr.org/vOHcwZg
+
+BASH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}+"
+BASH_THEME_GIT_PROMPT_MODIFIED="%{$fg[magenta]%}!"
+BASH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}-"
+BASH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}>"
+BASH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}#"
+BASH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}?"
+
+BASH_THEME_GIT_PROMPT_PREFIX=""
+BASH_THEME_GIT_PROMPT_SUFFIX=" "
+BASH_THEME_GIT_PROMPT_DIRTY=""
+BASH_THEME_GIT_PROMPT_CLEAN=""
+
+local user_color='green'
+test $UID -eq 0 && user_color='red'
+
+PROMPT='%(?..%{$fg_bold[red]%}exit %?
+%{$reset_color%})'\
+'%{$bold_color%}$(git_prompt_status)%{$reset_color%}'\
+'$(git_prompt_info)'\
+'%{$fg[$user_color]%}%~%{$reset_color%}'\
+'%(!.#.>) '
+
+PROMPT2='%{$fg[red]%}\ %{$reset_color%}'

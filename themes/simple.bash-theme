@@ -1,0 +1,6 @@
+PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%} '
+
+BASH_THEME_GIT_PROMPT_PREFIX="("
+BASH_THEME_GIT_PROMPT_SUFFIX=")"
+BASH_THEME_GIT_PROMPT_DIRTY=" ✗"
+BASH_THEME_GIT_PROMPT_CLEAN=" ✔"
